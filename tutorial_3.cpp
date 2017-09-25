@@ -71,6 +71,15 @@ int getInterval(const double d[], int n, double x)
 
 int getMinLoc(const double d[], int n)
 {	
+	double temp=d[0];
+	int index;
+	for (int i = 0; i < n; i++) {
+		if (temp >= d[i]) {
+			temp = d[i];
+			index = i;
+		}
+	}
+	
 	// Preconditions: 1. d[] is a circular array, and n > 1
 	//                2. all numbers in d[] are distinct
 	//                3. numbers are arranged in ascending order (circularly)
@@ -79,7 +88,7 @@ int getMinLoc(const double d[], int n)
 	// Implement this function using the binary search approach.
 
 	
-	return 0;  // dummy return statement
+	return index;  // dummy return statement
 }
 
 
