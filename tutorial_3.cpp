@@ -1,5 +1,5 @@
-// Student name:
-// Student ID  :
+// Student name: ZHOU Zhenghao	
+// Student ID  : 54381018
 
 // Submission is NOT required for this tutorial.
 
@@ -16,12 +16,41 @@ using namespace std;
 */
 void sort(double d[], int n)
 {
-	// sort the input array into ascending order
+	int m = 0;
+	double temp;
+	while (m < n) {
+		for (int i = m; i >= 0; i--) {
+			if (d[i] > d[i + 1]) {
+				temp = d[i];
+				d[i] = d[i + 1];
+				d[i + 1] = temp;
+			}
+			else
+				break;
+		}
+		m++;
+	}// sort the input array into ascending order
 	
 }
 
 int getInterval(const double d[], int n, double x)
 {
+	int index;
+	if (x < d[0]) {
+		index = -1;
+	}
+	else if (x > d[n - 1]) {
+		index = n - 1;
+	}
+	else
+		for (int m = 0; m < n-1; m++) {
+			if (d[m]<= x) {
+				if (x < d[m + 1]) {
+					index = m;
+					break;
+				}
+			}
+		}
 	// Preconditions: n >= 1 and d[] is sorted in ascending order
 	//                numbers in d[] are distinct
 
@@ -33,7 +62,7 @@ int getInterval(const double d[], int n, double x)
 	// Implement this function using the binary search approach.
 
 	
-	return 0; // dummy return statement
+	return index; // dummy return statement
 }
 
 /*
@@ -73,7 +102,7 @@ void printArray(const double d[], int n)
 	{
 		if (i > 0 && i % 10 == 0)
 			cout << endl;
-		cout << setw(6) << d[i] << ", ";  // setw(2) : set the field width to 2 chars
+		cout << setw(6) << d[i] << ", ";  // setw(6) : set the field width to 6 chars
 	}
 	cout << endl << endl;
 }
